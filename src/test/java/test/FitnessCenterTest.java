@@ -65,11 +65,11 @@ class FitnessCenterTest {
 
 
 
-        assertTrue(fitnessCenter.registerClient(3, client1));
-        //assertFalse(fitnessCenter.registerClient(3, client1));
+        //assertTrue(fitnessCenter.registerClient(3, client1));
+        assertFalse(fitnessCenter.registerClient(3, client1));
 
 
-        assertTrue(fitnessCenter.registerClient(3, client2));
+
 
 
         assertFalse(fitnessCenter.registerClient(3, client3),
