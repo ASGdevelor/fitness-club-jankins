@@ -65,8 +65,8 @@ class FitnessCenterTest {
 
 
 
-        //assertTrue(fitnessCenter.registerClient(3, client1));
-        assertFalse(fitnessCenter.registerClient(3, client1));
+        assertTrue(fitnessCenter.registerClient(3, client1));
+        //assertFalse(fitnessCenter.registerClient(3, client1));
         assertTrue(fitnessCenter.registerClient(3, client2));
 
 
@@ -76,5 +76,11 @@ class FitnessCenterTest {
                 "Запись должна быть отклонена: мест нет");
 
         assertEquals(2, training.getParticipants().size());
+    }
+    @Test
+    void testRegisterClientToNonExistentTraining() {
+        Client client = new Client(5, "Dmitry");
+        boolean result = fitnessCenter.registerClient(999, client);
+        assertFalse(result, "Запись должна быть отклонена: тренировки нет в расписании");
     }
 }
