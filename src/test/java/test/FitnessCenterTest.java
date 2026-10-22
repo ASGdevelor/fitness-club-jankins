@@ -75,6 +75,7 @@ class FitnessCenterTest {
         assertFalse(fitnessCenter.registerClient(3, client3),
                 "Запись должна быть отклонена: мест нет");
 
+        //assertEquals(2, training.getParticipants().size());
         assertEquals(10, training.getParticipants().size());
     }
     @Test
