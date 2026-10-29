@@ -72,7 +72,7 @@ class FitnessCenterTest {
                 "Запись должна быть отклонена: мест нет");
 
         //assertEquals(2, training.getParticipants().size());
-        assertEquals(10, training.getParticipants().size());
+        assertEquals(2, training.getParticipants().size());
     }
     @Test
     void testRegisterClientToNonExistentTraining() {
