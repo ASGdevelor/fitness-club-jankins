@@ -9,7 +9,10 @@ import repository.InMemoryTrainingRepository;
 import repository.TrainingRepository;
 import service.FitnessCenter;
 
-import static org.junit.jupiter.api.Assertions.*;
+//import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class FitnessCenterTest {
 
@@ -71,8 +74,8 @@ class FitnessCenterTest {
         assertFalse(fitnessCenter.registerClient(3, client3),
                 "Запись должна быть отклонена: мест нет");
 
-        //assertEquals(2, training.getParticipants().size());
-        assertEquals(10, training.getParticipants().size());
+        assertEquals(2, training.getParticipants().size());
+        //assertEquals(10, training.getParticipants().size());
     }
     @Test
     void testRegisterClientToNonExistentTraining() {

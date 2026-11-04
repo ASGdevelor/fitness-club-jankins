@@ -1,8 +1,14 @@
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class Main {
+
+    private static final Logger logger =
+            LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
 
@@ -13,21 +19,18 @@ public class Main {
                 .getResourceAsStream("application.properties")) {
 
             if (input == null) {
-                System.out.println("Файл application.properties не найден!");
+                logger.error("Файл application.properties не найден!");
                 return;
             }
 
             properties.load(input);
 
-            System.out.println("Фитнес-клуб запущен!");
-            System.out.println("Название: " +
-                    properties.getProperty("app.name"));
-            System.out.println("Среда: " +
-                    properties.getProperty("app.environment"));
+            logger.info("Фитнес-клуб запущен!");
+            logger.info("Название: {}", properties.getProperty("app.name"));
+            logger.info("Среда: {}", properties.getProperty("app.environment"));
 
         } catch (IOException e) {
-            System.out.println("Ошибка загрузки конфигурации:");
-            e.printStackTrace();
+            logger.error("Ошибка загрузки конфигурации", e);
         }
     }
 }
